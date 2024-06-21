@@ -84,7 +84,7 @@ jobs:
           git push origin $TAG_NAME
 
   publish-artifact:
-    name: Publish JAR to GitHub Release
+    name: Publish JAR to GitHub Release Page
     runs-on: ubuntu-latest
     needs: create-tag
 
