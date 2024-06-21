@@ -79,12 +79,18 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app-jar
-          path: ./
+          path: ./downloaded-artifact
+
+      - name: List files in downloaded-artifact directory
+        run: ls -al downloaded-artifact
+
+      - name: Move JAR to artifacts directory
+        run: |
+          mkdir -p artifacts
+          cp downloaded-artifact/*.jar artifacts/
 
       - name: Save JAR to Repository
         run: |
-          mkdir -p artifacts
-          cp app-jar/*.jar artifacts/
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add artifacts/*.jar
