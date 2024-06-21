@@ -83,7 +83,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag $TAG_NAME
-          git push https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }} --tags
+          git push --tags https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
 
   publish-artifact:
     name: Publish JAR to GitHub Release
